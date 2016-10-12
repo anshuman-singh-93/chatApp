@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+<style>
+    @charset "UTF-8";
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    .sectionborder{border: 1px solid #d8d8d8;box-shadow: 2px 2px 2px #d8d8d8;-webkit-box-shadow:2px 2px 2px #d8d8d8}
+    .myE1Child{margin-top: 10px;}
+    .me{
+        word-wrap: break-word;color: #761c19;text-align: justify !important;width:auto;max-width: 180px !important;;
+        font-size: 14px;
+        margin: -4px;
+        border-right: 3px solid #60DF88 !important;
+        padding-left: 5px !important;
+        padding-top: 5px !important;box-shadow: 2px 2px 2px #d8d8d8;-webkit-box-shadow:2px 2px 2px #d8d8d8
+
+        background-color: rgb(239, 255, 241);
+    }
+
+    .you{
+        word-wrap: break-word;color: #761c19;text-align: justify !important;width:auto;max-width: 180px !important;;
+        font-size: 14px;
+        margin: -4px;
+        border-left: 3px solid rgb(255, 112, 0) !important;
+        padding: 5px;
+        padding-left:10px;
+        background-color: rgb(247, 247, 214);box-shadow: 2px 2px 2px #d8d8d8;-webkit-box-shadow:2px 2px 2px #d8d8d8
+    }
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+    .ng-cloak, .x-ng-cloak,
+    .ng-hide:not(.ng-hide-animate) {
+        display: none !important;
+    }
+
+    ng\:form {
+        display: block;
+    }
+
+    .ng-animate-shim {
+        visibility:hidden;
+    }
+
+    .ng-anchor {
+        position:absolute;
+    }
+</style>
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="../../bower_components/angular/angular.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="../../public/controllers/socket.controller.js"></script>
+</head>
+<body ng-app="chatApp" ng-controller="socketController as vm" ng-cloak>
+<div class="section panel panel-body">
+    <div class="row  text-center">
+        <div class="col-xs-12">
+            <h3>Welcome to Chat room</h3>
+        </div>
+    </div>
+
+    <div class="row  text-center" data-ng-if="vm.showNickName">
+        <div class="col-xs-12">
+            <form ng-submit="vm.nicknameSubmit()">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Nick name</label>
+                    <input type="text" ng-model="vm.nickName" class="form-control" id="exampleInputEmail1" placeholder="nick name">
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="panel-body col-xs-4 col-xs-offset-4 sectionborder" style="height: 400px; overflow-y: scroll " data-ng-if="vm.showNickName===false" id="user_list" >
+
+
+
+    </div>
+
+    <div class="row" data-ng-if="vm.showNickName===false" >
+        <div class="col-xs-12 ">
+
+            <form class="form" ng-submit="vm.msgSubmit()">
+                <div class="form-group">
+                    <label for="exampleInputName2">Message</label>
+                    <input type="text" class="form-control" id="exampleInputName2" placeholder="Write here" ng-model="vm.message">
+                </div>
+
+                <button type="submit" class="btn btn-default hidden-md hidden-sm hidden-lg" >Send</button>
+                <label for="exampleInputName2">Online</label>&nbsp;<span data-ng-bind="vm.online"></span>
+
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+</body>
+
+
+</html>

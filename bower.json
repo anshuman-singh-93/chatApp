@@ -1,0 +1,15 @@
+{
+  "name": "chatapp",
+  "description": "chat application",
+  "main": "index.js",
+  "authors": [
+    "anshuman-singh-93 <anshumanpbh@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7"
+  }
+}
